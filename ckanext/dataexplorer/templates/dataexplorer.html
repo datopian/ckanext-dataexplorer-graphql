@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block page %}
+<div
+  class="data-explorer"
+  id="root"
+  data-api="{{ data_api_url }}"
+  data-dataset="{{ data_dataset }}"
+  data-schema="{{ h.dump_json( data_schema) }}"
+></div>
+{% if h.ckan_29_or_higher %} {% include 'snippets/assets_2.9.html' %} {% else %}
+{% include 'snippets/resource_2.8.html' %} {% endif %} {% endblock %} {% block
+styles %}{% endblock %} {% block custom_styles %}{% endblock %}

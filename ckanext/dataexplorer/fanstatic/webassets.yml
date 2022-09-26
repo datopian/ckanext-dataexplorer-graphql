@@ -1,0 +1,16 @@
+main-css:
+  output: dataexplorer/%(version)s_dataexplorer.css
+  contents:
+    - css/2.e192e563.chunk.css
+    - css/main.00ab0267.chunk.css
+
+main:
+  output: dataexplorer/%(version)s_dataexplorer.js
+  extra:
+    preload:
+      - dataexplorer/main-css
+  contents:
+    - js/2.7ed5c02c.chunk.js
+    - js/3.1144eff9.chunk.js
+    - js/main.b8f73348.chunk.js
+    - js/runtime-main.af08c8f5.js
