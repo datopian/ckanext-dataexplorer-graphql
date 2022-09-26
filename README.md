@@ -26,7 +26,11 @@ To install ckanext-dataexplorer-graphql:
    - `dataexplorer_view`for multiview visualization table
    - Add `dataexplorer_table_view` for table view.
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+4. Add the `ckanext.data_explorer_react.data_api_url` setting to your CKAN
+   config file (by default the config file is located at
+   `/etc/ckan/default/production.ini`) this should have the the data-api instance url with the respective version Ex: `http://localhost:3000/v1/`
+
+5. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
    sudo service apache2 reload
 
