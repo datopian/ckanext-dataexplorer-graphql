@@ -185,8 +185,8 @@ class DataExplorerTableView(DataExplorerViewBase):
         return {
             'widgets': widgets,
             'data_api_url': config.get('ckanext.data_explorer_graphql.data_api_url'),
-            'data_dataset':  get_alias_of_resource(data_dict['resource'])['name'].replace('-', '_'),
-            'data_schema': {'fields': list(map(lambda x: {'type': x['type'], 'name': x['name'].replace(' ', '').replace('(', '_').replace(')', '_').replace('-', '_')}, schema))}
+            'data_dataset':  get_alias_of_resource(data_dict['resource'])['name'].replace('-', '_').replace(' ', '_').replace('(', '_').replace(')', '_'),
+            'data_schema': {'fields': list(map(lambda x: {'type': x['type'], 'name': x['name'].replace(' ', '_').replace('(', '_').replace(')', '_').replace('-', '_')}, schema))}
         }
 
     def can_view(self, data_dict):
