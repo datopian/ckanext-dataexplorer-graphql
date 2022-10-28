@@ -181,12 +181,13 @@ class DataExplorerTableView(DataExplorerViewBase):
         widgets = get_widget(data_dict['resource_view'], view_type)
         schema = datastore_fields_to_schema(data_dict['resource'])
         filters = data_dict['resource_view'].get('filters', {})
-
+        sorted_schema = sorted(schema, key=lambda d: d['type'])
+        
         return {
             'widgets': widgets,
             'data_api_url': config.get('ckanext.data_explorer_graphql.data_api_url'),
             'data_dataset':  get_alias_of_resource(data_dict['resource'])['name'].replace('-', '_').replace(' ', '_').replace('(', '_').replace(')', '_'),
-            'data_schema': {'fields': list(map(lambda x: {'type': x['type'], 'name': x['name'].replace(' ', '_').replace('(', '_').replace(')', '_').replace('-', '_')}, schema))}
+            'data_schema': {'fields': list(map(lambda x: {'type': x['type'], 'name': x['name'].replace(' ', '_').replace('(', '_').replace(')', '_').replace('-', '_')}, sorted_schema))}
         }
 
     def can_view(self, data_dict):
